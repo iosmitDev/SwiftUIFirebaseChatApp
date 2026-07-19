@@ -6,9 +6,31 @@
 //
 
 import SwiftUI
+import Firebase
+
+
+class FirebaseManager: NSObject {
+    
+    static let shared = FirebaseManager()
+    
+    let auth: Auth
+    
+    override init() {
+        
+        FirebaseApp.configure()
+        
+        auth = Auth.auth()
+        
+        super.init()
+    }
+    
+}
+
 //When show title bar like navigation title use navigationStack
 //When we need in top we can use scrollview or spacer
 struct AuthenticationView: View {
+    
+    @State var loginMessage = ""
     
     @State var isLogin = false
     @State var email: String = ""
@@ -27,7 +49,7 @@ struct AuthenticationView: View {
                             .tag(false)
                     }
                     .pickerStyle(.segmented)
-                   
+                    
                     //MARK: - If loginMode
                     if !isLogin {
                         Button(action: {
@@ -56,7 +78,6 @@ struct AuthenticationView: View {
                     .background(.white)
                     
                     Button(action: {
-                        
                         handleAction()
                     }, label: {
                         Text(isLogin ? "Log In" : "Create Account")
@@ -65,25 +86,61 @@ struct AuthenticationView: View {
                             .background(.blue)
                             .foregroundColor(.white)
                             .font(.system(size: 14, weight: .semibold))
-                            //.cornerRadius(12)
-                           // .padding(.horizontal)
+                        //.cornerRadius(12)
+                        // .padding(.horizontal)
                     })
                 }
                 .padding()
                 
+                Text(self.loginMessage).foregroundStyle(.red)
+                
             }
             .navigationTitle(isLogin ? "Log In" : "Create Account")
             .background(Color(uiColor: .init(white: 0, alpha: 0.05))) //If color expmad to background then we use here ignore safe area inside color
-           
+            
         }
-        
+        .navigationViewStyle(.stack)
     }
     private func handleAction() {
         if isLogin {
-            print("Login")
+            loginUser()
+            email = ""
+            password = ""
         }
         else {
-            print("Register")
+            createNewAccount()
+            email = ""
+            password = ""
+        }
+    }
+    
+    private func createNewAccount() {
+        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, error in
+            
+            if let err = error {
+                print("Failed to create user", err)
+                self.loginMessage = "Failed to create user \(err)"
+                return
+            }
+            
+            print("Succesfully created user", result?.user.uid ?? "")
+            
+            self.loginMessage = "Succesfully created user \(result?.user.uid ?? "")"
+        }
+    }
+    
+    private func loginUser() {
+        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, error in
+            
+            if let err = error {
+                print("Failed to Login user", err)
+                self.loginMessage = "Failed to Login user \(err)"
+                return
+            }
+            
+            print("Succesfully Logged in user", result?.user.uid ?? "")
+            
+            self.loginMessage = "Succesfully Logged in user \(result?.user.uid ?? "")"
         }
     }
 }
