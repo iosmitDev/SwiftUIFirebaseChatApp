@@ -11,6 +11,7 @@
 		11857AFD300CF940001214E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11857AFC300CF940001214E4 /* ContentView.swift */; };
 		11857AFF300CF941001214E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11857AFE300CF941001214E4 /* Assets.xcassets */; };
 		11857B02300CF941001214E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11857B01300CF941001214E4 /* Preview Assets.xcassets */; };
+		11857B0A300CFAAC001214E4 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11857B09300CFAAC001214E4 /* AuthenticationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		11857AFC300CF940001214E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		11857AFE300CF941001214E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11857B01300CF941001214E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		11857B09300CFAAC001214E4 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		11857AF9300CF940001214E4 /* SwiftUIFirebaseChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				11857B08300CFA94001214E4 /* Views */,
 				11857AFA300CF940001214E4 /* SwiftUIFirebaseChatAppApp.swift */,
 				11857AFC300CF940001214E4 /* ContentView.swift */,
 				11857AFE300CF941001214E4 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				11857B01300CF941001214E4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		11857B08300CFA94001214E4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				11857B09300CFAAC001214E4 /* AuthenticationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				11857AFD300CF940001214E4 /* ContentView.swift in Sources */,
 				11857AFB300CF940001214E4 /* SwiftUIFirebaseChatAppApp.swift in Sources */,
+				11857B0A300CFAAC001214E4 /* AuthenticationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
