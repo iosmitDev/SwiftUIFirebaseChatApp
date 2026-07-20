@@ -15,6 +15,7 @@
 		11857B0C300D5355001214E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11857B0B300D5355001214E4 /* GoogleService-Info.plist */; };
 		11857B0F300D5E31001214E4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 11857B0E300D5E31001214E4 /* FirebaseAuth */; };
 		11857B11300D5E31001214E4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 11857B10300D5E31001214E4 /* FirebaseStorage */; };
+		11EBABDA300E828B00004673 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EBABD9300E828B00004673 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		11857B01300CF941001214E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		11857B09300CFAAC001214E4 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		11857B0B300D5355001214E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		11EBABD9300E828B00004673 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		11EBABDB300EA41B00004673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 		11857AF9300CF940001214E4 /* SwiftUIFirebaseChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				11EBABDB300EA41B00004673 /* Info.plist */,
+				11EBABD8300E827800004673 /* ImagePicker */,
 				11857B0B300D5355001214E4 /* GoogleService-Info.plist */,
 				11857B08300CFA94001214E4 /* Views */,
 				11857AFA300CF940001214E4 /* SwiftUIFirebaseChatAppApp.swift */,
@@ -83,6 +88,14 @@
 				11857B09300CFAAC001214E4 /* AuthenticationView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		11EBABD8300E827800004673 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				11EBABD9300E828B00004673 /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11857AFD300CF940001214E4 /* ContentView.swift in Sources */,
+				11EBABDA300E828B00004673 /* ImagePicker.swift in Sources */,
 				11857AFB300CF940001214E4 /* SwiftUIFirebaseChatAppApp.swift in Sources */,
 				11857B0A300CFAAC001214E4 /* AuthenticationView.swift in Sources */,
 			);
@@ -301,6 +315,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIFirebaseChatApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIFirebaseChatApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to take profile pictures.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -329,6 +345,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIFirebaseChatApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIFirebaseChatApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to take profile pictures.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -12,7 +12,7 @@ import Firebase
 class FirebaseManager: NSObject {
     
     static let shared = FirebaseManager()
-    
+     
     let auth: Auth
     
     override init() {
@@ -35,6 +35,9 @@ struct AuthenticationView: View {
     @State var isLogin = false
     @State var email: String = ""
     @State var password: String = ""
+    @State var shouldShowImage = false
+    
+    @State var image: UIImage?
     
     var body: some View {
         NavigationStack {
@@ -53,16 +56,31 @@ struct AuthenticationView: View {
                     //MARK: - If loginMode
                     if !isLogin {
                         Button(action: {
-                            
+                            shouldShowImage.toggle()
                         }, label: {
-                            Image(systemName: "person.fill").font(.system(size: 64))
-                                .padding()
-                                .frame(width: 100, height: 100)
-                                .background(
+                            
+                            //Put inside Vstack and do background on vstack
+                            VStack {
+                                if let image = self.image {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 100, height: 100)
+                                        .cornerRadius(64)
+                                }
+                                else {
+                                    Image(systemName: "person.fill").font(.system(size: 64))
+                                        .padding()
+                                        .frame(width: 100, height: 100)
+                                        .foregroundColor(Color(.label))
+                                }
+                            }
+                               .background(
+                                    //Roundedrect with stroke and width
                                     Circle().stroke(Color.black,lineWidth: 2)
                                 )
                         })
-                        .foregroundColor(.black)
+                       
                     }
                     
                     //MARK: - We apply color and padding is same to both text filed so use group
@@ -100,6 +118,9 @@ struct AuthenticationView: View {
             
         }
         .navigationViewStyle(.stack)
+        .fullScreenCover(isPresented: $shouldShowImage, content: {
+            ImagePicker(image: $image,sourceType: .savedPhotosAlbum)
+                    })
     }
     private func handleAction() {
         if isLogin {
